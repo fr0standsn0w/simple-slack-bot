@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      target: "${TARGET:-builder}"
+    env_file:
+      - .env
+    volumes:
+      - ${PWD:-./}:/app
+    ports:
+      - ${APP_PORT}:3000
